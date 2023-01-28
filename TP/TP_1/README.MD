@@ -19,9 +19,14 @@ Le dossier data_obtained_draft est la version que nous avons obtenus en simulant
 Le code est conçu de façon à être exécuter sur plusieurs fichiers et il fait directement l'analyse syntaxique, morpho-syntaxique et extraction
 d'entitées nommées.
 
-Pour le fichier wsj_0010_sample.txt par exemple : il suffit d'entrer PYTHON data\wsj_0010_sample.txt 
+Pour le fichier wsj_0010_sample.txt par exemple : il suffit d'entrer
+
+python data\wsj_0010_sample.txt 
+
 Pour exécuter à la fois le fichier sample et le fichier formal-tst.NE.key.04oct95_sample.txt il faudra donc faire :
-PYTHON data\wsj_0010_sample.txt data\formal-tst.NE.key.04oct95_sample.txt
+
+python data\wsj_0010_sample.txt data\formal-tst.NE.key.04oct95_sample.txt
+
 Tous les résultats sont stockés dans le dossier data_obtained.
 
 
@@ -32,7 +37,9 @@ Tous les résultats sont stockés dans le dossier data_obtained.
 
 Pour convertir en annotation standard : faire python convertion.py data_obtained\wsj_0010_sample.txt.pos.nltk  fichier_ner\wsj_0010_sample.txt.pos.ref
 et pareil pour autres fichiers
-Pour évaluer : python evaluate.py data_obtained\wsj_0010_sample.txt.pos.univ.nltk   fichier_ref\wsj_0010_sample.txt.pos.univ.ref
+Pour évaluer : 
+
+python evaluate.py data_obtained\wsj_0010_sample.txt.pos.univ.nltk   fichier_ref\wsj_0010_sample.txt.pos.univ.ref
 
 Dans la première évaluation on a un pourcentage de ressemblance égal à 93,66% alors qu'après conversion en annotation
 plus générale on a une augmentation du pourcentage qui passe à 95,41 %. Ceci est dû au fait que les annotations 
