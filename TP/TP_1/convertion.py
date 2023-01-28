@@ -69,9 +69,9 @@ for i in range (1 , len(sys.argv)) :
 
     #ON ECRIT LE NOUVEAU FICHIER
     if fichier_ref == True :
-        fichier_des_annotations_nltk_new = open("wsj_0010_sample.txt.pos.univ.ref","w")
+        fichier_des_annotations_nltk_new = open("fichier_ref\wsj_0010_sample.txt.pos.univ.ref","w")
     else :
-        fichier_des_annotations_nltk_new = open("wsj_0010_sample.txt.pos.univ.nltk","w")
+        fichier_des_annotations_nltk_new = open(chemin_du_fichier.replace("pos","pos.univ"),"w")
     
     fichier_des_annotations_nltk_new.write("".join(du_dictionnaire_au_contenu_de_fichier(liste_contenu_nltk)))
 

@@ -63,7 +63,8 @@ for i in range (1 , len(sys.argv)) :
 
 
     ## ECRITURE DANS LE FICHIER
-    fichier_desambigu = open(chemin_fichier_sample+"pos.nltk","w")
+    new_chemin_de_fichier = chemin_fichier_sample.replace("data","data_obtained")
+    fichier_desambigu = open(new_chemin_de_fichier+".pos.nltk","w")
     fichier_desambigu.write("".join(liste_contenu_tokens_tag))
     fichier_desambigu.close()
 
@@ -72,7 +73,7 @@ for i in range (1 , len(sys.argv)) :
                                     #   PARTIE ANALYSE SYNTAXIQUE   #
                                     #                               #
 
-
+    
     ### ANALYSE SYNTAXIQUE DES PHRASES DU FICHIER SAMPLE
     print(" ANALYSE SYNTAXIQUE DES PHRASES DU FICHIER SAMPLE")
     grammar = "Compound:  {<DT>?<JJ>*<NN>}"
@@ -83,15 +84,15 @@ for i in range (1 , len(sys.argv)) :
     liste_des_compound_name = [str(x)+"\n" for x in liste_des_compound_name]
 
     print(" ECRITURE DANS LE FICHIER CHUNK")
-    fichier_chunk = open(chemin_fichier_sample+"chk.nltk", "w")
+    fichier_chunk = open(new_chemin_de_fichier+".chk.nltk", "w")
     fichier_chunk.write("".join(liste_des_compound_name))
     fichier_chunk.close()
 
 
 
     #GENERALISATION A LA RECONNAISSANCE DES STRUCTURE SYNTAXIQUE
-    fichier_chunk = open(chemin_fichier_sample+"chk.nltk", "a")
-    fichier_structures_syntaxiques = open("wsj.structures.syntaxiques" , "r")
+    fichier_chunk = open(new_chemin_de_fichier+".chk.nltk", "a")
+    fichier_structures_syntaxiques = open("data\wsj.structures.syntaxiques" , "r")
 
     liste_des_structures = []
     for structure_syntaxique in fichier_structures_syntaxiques.readlines() :
@@ -111,7 +112,8 @@ for i in range (1 , len(sys.argv)) :
         print("\n \n")
         liste_des_resultats.append(resultat)
 
-    for i in range(0, len(liste_des_resultats)-1) :
+
+    for i in range(0, len(liste_des_resultats)) :
         if i == 0 :
             fichier_chunk.write ("\n \n ADJECTIF-NOM \n")
         elif i==1 :
@@ -135,8 +137,8 @@ for i in range (1 , len(sys.argv)) :
                                     #                               #
                                     #   PARTIE ENTITES NOMMEES      #
                                     #                               #
-
-    fichier_ner = open(chemin_fichier_sample+"ne.nltk", "w")
+    
+    fichier_ner = open(new_chemin_de_fichier+".ne.nltk", "w")
     print("\n \n \n")
     print(" DETECTION DES ENTITES NOMMEES ")
     liste_ner = ne_chunk(tag , binary=False)
@@ -150,7 +152,7 @@ for i in range (1 , len(sys.argv)) :
     fichier_ner.write("".join(result_liste_ner))
 
     #LECTURE DU FICHIER DU NER STANDARD
-    fichier_ner_standard = open("convertisseur.ner","r")
+    fichier_ner_standard = open("data\convertisseur.ner","r")
     dict_ner_standard = {}
     for line in fichier_ner_standard.readlines() :
         j = line[:-1].split()
@@ -164,7 +166,7 @@ for i in range (1 , len(sys.argv)) :
     result_liste_ner = recupere_les_elements_dans_les_tree(liste_ner)
 
     #ECRITURE DANS LE FICHIER
-    fichier_ner_ecriture = open(chemin_fichier_sample+"ne.nltk","w")
+    fichier_ner_ecriture = open(new_chemin_de_fichier+"ne.nltk","w")
     fichier_ner_ecriture.write("".join(result_liste_ner))
     fichier_ner_ecriture.close()
 
@@ -184,7 +186,7 @@ for i in range (1 , len(sys.argv)) :
         else :
             annotation_bio.append(str(el[0]) + "    O\n")
 
-    fichier_annotation_bio = open(chemin_fichier_sample+"etiquettes_en_bio.txt","w")
+    fichier_annotation_bio = open(new_chemin_de_fichier+".etiquettes_en_bio.txt","w")
     fichier_annotation_bio.write("".join(annotation_bio))
     fichier_annotation_bio.close()
 
