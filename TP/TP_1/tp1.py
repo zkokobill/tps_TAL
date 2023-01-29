@@ -29,7 +29,7 @@ def transformer_les_ner_nltk_en_nltk_standard(liste_ner_nltk , dict_ner_standard
                             #                   #
                             #   CODE PRINCIPAL  #
                             #                   #
-
+print(len(sys.argv))
 ##DESAMBIGUATION MORPHO SYNTAXIQUE DU FICHIER SAMPLE
 for i in range (1 , len(sys.argv)) :
     print(" OUVERTURE DU FICHIER CONTENANT LE TEXTE")
@@ -92,7 +92,7 @@ for i in range (1 , len(sys.argv)) :
 
     #GENERALISATION A LA RECONNAISSANCE DES STRUCTURE SYNTAXIQUE
     fichier_chunk = open(new_chemin_de_fichier+".chk.nltk", "a")
-    fichier_structures_syntaxiques = open("data\wsj.structures.syntaxiques" , "r")
+    fichier_structures_syntaxiques = open("data/wsj.structures.syntaxiques" , "r")
 
     liste_des_structures = []
     for structure_syntaxique in fichier_structures_syntaxiques.readlines() :
@@ -152,7 +152,7 @@ for i in range (1 , len(sys.argv)) :
     fichier_ner.write("".join(result_liste_ner))
 
     #LECTURE DU FICHIER DU NER STANDARD
-    fichier_ner_standard = open("data\convertisseur.ner","r")
+    fichier_ner_standard = open("data/convertisseur.ner","r")
     dict_ner_standard = {}
     for line in fichier_ner_standard.readlines() :
         j = line[:-1].split()

@@ -21,11 +21,11 @@ d'entitées nommées.
 
 Pour le fichier wsj_0010_sample.txt par exemple : il suffit d'entrer
 
-python data\wsj_0010_sample.txt 
+python tp1.py data/wsj_0010_sample.txt 
 
 Pour exécuter à la fois le fichier sample et le fichier formal-tst.NE.key.04oct95_sample.txt il faudra donc faire :
 
-python data\wsj_0010_sample.txt data\formal-tst.NE.key.04oct95_sample.txt
+python tp1.py data/wsj_0010_sample.txt data/formal-tst.NE.key.04oct95_sample.txt
 
 Tous les résultats sont stockés dans le dossier data_obtained.
 
@@ -33,17 +33,21 @@ Tous les résultats sont stockés dans le dossier data_obtained.
 
 
 
-				'1. EVALUATION DE L’ANALYSE MORPHO-SYNTAXIQUE DE LA PLATEFORME NLTK'
+				1. EVALUATION DE L’ANALYSE MORPHO-SYNTAXIQUE DE LA PLATEFORME NLTK'
 
-Pour convertir en annotation standard : faire python convertion.py data_obtained\wsj_0010_sample.txt.pos.nltk  fichier_ner\wsj_0010_sample.txt.pos.ref
-et pareil pour autres fichiers
 Pour évaluer : 
+python evaluate.py data_obtained/wsj_0010_sample.txt.pos.nltk  fichier_ref/wsj_0010_sample.pos.ref
 
-python evaluate.py data_obtained\wsj_0010_sample.txt.pos.univ.nltk   fichier_ref\wsj_0010_sample.txt.pos.univ.ref
+Pour convertir en annotation standard : 
 
-Dans la première évaluation on a un pourcentage de ressemblance égal à 93,66% alors qu'après conversion en annotation
-plus générale on a une augmentation du pourcentage qui passe à 95,41 %. Ceci est dû au fait que les annotations 
-standard sont plus générales ce qui pousse à la ressemblance plus poussée des deux annotations.
+python convertion.py data_obtained/wsj_0010_sample.txt.pos.nltk fichier_ref/wsj_0010_sample.pos.ref
+et pareil pour les autres fichiers
+
+Pour évaluer la version en annotation standard: 
+
+python evaluate.py data_obtained/wsj_0010_sample.txt.pos.univ.nltk   fichier_ref/wsj_0010_sample.txt.pos.univ.ref
+
+Dans la première évaluation on a un pourcentage de ressemblance égal à 93,66% alors qu'après conversion en annotation plus générale on a une augmentation du pourcentage qui passe à 95,41 %. Ceci est dû au fait que les annotations standard sont plus générales ce qui pousse à la ressemblance plus poussée des deux annotations.
 
 
 
