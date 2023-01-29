@@ -29,7 +29,6 @@ def transformer_les_ner_nltk_en_nltk_standard(liste_ner_nltk , dict_ner_standard
                             #                   #
                             #   CODE PRINCIPAL  #
                             #                   #
-print(len(sys.argv))
 ##DESAMBIGUATION MORPHO SYNTAXIQUE DU FICHIER SAMPLE
 for i in range (1 , len(sys.argv)) :
     print(" OUVERTURE DU FICHIER CONTENANT LE TEXTE")
