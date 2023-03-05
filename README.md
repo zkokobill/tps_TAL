@@ -7,3 +7,9 @@ Un dossier pour le projet
 Un dossier pour les TP.
 
 Chaque TP a son propre README qui fera office rapport pour celui-ci.
+
+
+
+
+
+LE DOSSIER PROJET CONTIENT LE PROJET
